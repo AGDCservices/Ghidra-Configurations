@@ -34,6 +34,7 @@
                 <STATE NAME="Scroll Wheel Pans" TYPE="boolean" VALUE="true" />
                 <ENUM NAME="View Settings" TYPE="enum" CLASS="ghidra.graph.viewer.options.ViewRestoreOption" VALUE="START_FULLY_ZOOMED_IN" />
                 <STATE NAME="Use Condensed Layout" TYPE="boolean" VALUE="false" />
+                <ENUM NAME="Navigation History" TYPE="enum" CLASS="ghidra.app.plugin.core.functiongraph.mvc.NavigationHistoryChoices" VALUE="NAVIGATION_EVENTS" />
                 <STATE NAME="Use Animation" TYPE="boolean" VALUE="false" />
             </CATEGORY>
             <CATEGORY NAME="Listing Display">
@@ -103,252 +104,8 @@
             <STATE NAME="DISPLAY_SATELLITE" TYPE="boolean" VALUE="true" />
             <STATE NAME="DOCK_SATELLITE" TYPE="boolean" VALUE="true" />
         </PLUGIN_STATE>
-        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.symtable.SymbolTablePlugin">
-            <XML NAME="FILTER_SETTINGS">
-                <SYMBOL_TABLE_FILTER>
-                    <ADVANCED_FILTER NAME="Primary Labels" ACTIVE="false">
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                    </ADVANCED_FILTER>
-                    <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                    <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <ADVANCED_FILTER NAME="Offcut Labels" ACTIVE="false">
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                    </ADVANCED_FILTER>
-                    <FILTER NAME="Default (Functions)" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="false" />
-                    <FILTER NAME="Imported" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <ADVANCED_FILTER NAME="Non-Primary Labels" ACTIVE="false">
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                    </ADVANCED_FILTER>
-                    <ADVANCED_FILTER NAME="Externals" ACTIVE="false">
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    </ADVANCED_FILTER>
-                    <ADVANCED_FILTER NAME="Non-Externals" ACTIVE="false">
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    </ADVANCED_FILTER>
-                    <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                    <FILTER NAME="External Library" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <FILTER NAME="User Defined" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <ADVANCED_FILTER NAME="Stack Variables" ACTIVE="false">
-                        <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    </ADVANCED_FILTER>
-                    <FILTER NAME="Default (Labels)" ACTIVE="false" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="false" />
-                    <ADVANCED_FILTER NAME="Not In Memory" ACTIVE="false">
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                    </ADVANCED_FILTER>
-                    <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                    <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <ADVANCED_FILTER NAME="Globals" ACTIVE="false">
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    </ADVANCED_FILTER>
-                    <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <ADVANCED_FILTER NAME="Register Variables" ACTIVE="false">
-                        <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    </ADVANCED_FILTER>
-                    <FILTER NAME="Global Register Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <ADVANCED_FILTER NAME="Locals" ACTIVE="false">
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    </ADVANCED_FILTER>
-                    <ADVANCED_FILTER NAME="Subroutines" ACTIVE="false">
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                    </ADVANCED_FILTER>
-                    <FILTER NAME="Analysis" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
-                    <ADVANCED_FILTER NAME="Entry Points" ACTIVE="false">
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                    </ADVANCED_FILTER>
-                    <ADVANCED_FILTER NAME="Unreferenced" ACTIVE="false">
-                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
-                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
-                    </ADVANCED_FILTER>
-                </SYMBOL_TABLE_FILTER>
-            </XML>
-        </PLUGIN_STATE>
-        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.navigation.GoToAddressLabelPlugin">
-            <STATE NAME="CASE_SENSITIVE" TYPE="boolean" VALUE="false" />
-            <STATE NAME="INCLUDE_DYNAMIC" TYPE="boolean" VALUE="true" />
-            <ARRAY NAME="GO_TO_HISTORY" TYPE="string">
-                <A VALUE="f__MainCapability" />
-                <A VALUE="f__NetworkAuthentication" />
-                <A VALUE="f__CmdSwitch" />
-                <A VALUE="entry" />
-                <A VALUE="10005d94" />
-                <A VALUE="10003990" />
-                <A VALUE="1000182f" />
-                <A VALUE="100052b0" />
-                <A VALUE="10003030" />
-                <A VALUE="f__DeleteTempFile" />
-            </ARRAY>
-        </PLUGIN_STATE>
-        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.symboltree.SymbolTreePlugin">
-            <STATE NAME="GO_TO_TOGGLE_STATE" TYPE="boolean" VALUE="false" />
-        </PLUGIN_STATE>
         <PLUGIN_STATE CLASS="ghidra.app.plugin.core.bookmark.BookmarkPlugin">
             <ARRAY NAME="BOOKMARK_TYPES" TYPE="string" />
-        </PLUGIN_STATE>
-        <PLUGIN_STATE CLASS="ghidra.plugin.importer.ImporterPlugin">
-            <ARRAY NAME="library search paths" TYPE="string">
-                <A VALUE="." />
-                <A VALUE="C:\WINDOWS\SysWOW64" />
-                <A VALUE="C:\jdk-12\bin" />
-                <A VALUE="C:\WINDOWS\Sun\Java\bin" />
-                <A VALUE="C:\WINDOWS\system32" />
-                <A VALUE="C:\WINDOWS" />
-                <A VALUE="C:\Program Files (x86)\Lenovo\FusionEngine" />
-                <A VALUE="C:\Windows\system32" />
-                <A VALUE="C:\Windows" />
-                <A VALUE="C:\Windows\System32\Wbem" />
-                <A VALUE="C:\Windows\System32\WindowsPowerShell\v1.0\" />
-                <A VALUE="C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin" />
-                <A VALUE="C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common" />
-                <A VALUE="C:\WINDOWS\System32\Wbem" />
-                <A VALUE="C:\WINDOWS\System32\WindowsPowerShell\v1.0\" />
-                <A VALUE="C:\Users\user\AppData\Local\Programs\Python\Python37" />
-                <A VALUE="C:\WINDOWS\System32\OpenSSH\" />
-                <A VALUE="C:\Users\user\Downloads\ghidra\gradle-5.0-bin\gradle-5.0\bin" />
-                <A VALUE="C:\Users\user\Downloads\ghidra\win_flex_bison-latest" />
-                <A VALUE="C:\Users\user\AppData\Local\Programs\Python\Python37\Scripts\" />
-                <A VALUE="C:\Users\user\AppData\Local\Programs\Python\Python37\" />
-                <A VALUE="C:\Users\user\AppData\Local\Microsoft\WindowsApps" />
-                <A VALUE="C:\Users\user\AppData\Local\Programs\Git\cmd" />
-            </ARRAY>
-        </PLUGIN_STATE>
-        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.script.GhidraScriptMgrPlugin">
-            <ARRAY NAME="Scripts_Actions_Key" TYPE="string" />
-            <ARRAY NAME="PathManagerPanel_ENABLE" TYPE="boolean">
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-            </ARRAY>
-            <ARRAY NAME="PathManagerPanel_EDIT" TYPE="boolean">
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-                <A VALUE="false" />
-            </ARRAY>
-            <ARRAY NAME="PathManagerPanel_PATH" TYPE="string">
-                <A VALUE="$USER_HOME/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Features/Base/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Features/BytePatterns/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Features/Decompiler/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Features/FileFormats/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Features/FunctionID/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Features/GnuDemangler/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Features/Python/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Features/VersionTracking/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Processors/8051/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Processors/DATA/ghidra_scripts" />
-                <A VALUE="$GHIDRA_HOME/Processors/PIC/ghidra_scripts" />
-            </ARRAY>
-            <STATE NAME="DEFAULT_FONT_NAME" TYPE="string" VALUE="monospaced" />
-            <ARRAY NAME="PathManagerPanel_READ" TYPE="boolean">
-                <A VALUE="false" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-                <A VALUE="true" />
-            </ARRAY>
-            <STATE NAME="DEFAULT_FONT_SIZE" TYPE="int" VALUE="12" />
-            <STATE NAME="DEFAULT_FONT_STYLE" TYPE="int" VALUE="0" />
-            <STATE NAME="DESCRIPTION_DIVIDER_LOCATION" TYPE="int" VALUE="672" />
-            <STATE NAME="FILTER_TEXT" TYPE="string" VALUE="" />
-        </PLUGIN_STATE>
-        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.datapreview.DataTypePreviewPlugin">
-            <STATE NAME="TerminatedCString" TYPE="string" VALUE="/" />
-            <STATE NAME="byte" TYPE="string" VALUE="/" />
-            <STATE NAME="double" TYPE="string" VALUE="/" />
-            <STATE NAME="dword" TYPE="string" VALUE="/" />
-            <STATE NAME="char" TYPE="string" VALUE="/" />
-            <STATE NAME="qword" TYPE="string" VALUE="/" />
-            <STATE NAME="TerminatedUnicode" TYPE="string" VALUE="/" />
-            <STATE NAME="float" TYPE="string" VALUE="/" />
-            <STATE NAME="word" TYPE="string" VALUE="/" />
-        </PLUGIN_STATE>
-        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.datamgr.DataTypeManagerPlugin">
-            <STATE NAME="PreviewWindowState" TYPE="boolean" VALUE="false" />
-            <STATE NAME="ArrayFilterState" TYPE="boolean" VALUE="true" />
-            <ARRAY NAME="ArchiveNames" TYPE="string">
-                <A VALUE="$GHIDRA_HOME/Features/Base/data/typeinfo/win32/windows_vs12_32.gdt" />
-            </ARRAY>
-            <STATE NAME="ConflictResolutionMode" TYPE="string" VALUE="RENAME_AND_ADD" />
-            <ARRAY NAME="RecentArchiveNames" TYPE="string">
-                <A VALUE="$GHIDRA_HOME/Features/Base/data/typeinfo/win32/windows_vs12_32.gdt" />
-            </ARRAY>
-            <STATE NAME="PointerFilterState" TYPE="boolean" VALUE="true" />
-            <ARRAY NAME="Favorite Dts" TYPE="string">
-                <A VALUE="/pointer" />
-                <A VALUE="/char" />
-                <A VALUE="/string" />
-                <A VALUE="/TerminatedCString" />
-                <A VALUE="/TerminatedUnicode" />
-                <A VALUE="/float" />
-                <A VALUE="/double" />
-                <A VALUE="/longdouble" />
-                <A VALUE="/int" />
-                <A VALUE="/long" />
-                <A VALUE="/uint" />
-                <A VALUE="/ulong" />
-                <A VALUE="/byte" />
-                <A VALUE="/word" />
-                <A VALUE="/dword" />
-                <A VALUE="/qword" />
-            </ARRAY>
-            <STATE NAME="DataMembersInSearchState" TYPE="boolean" VALUE="false" />
         </PLUGIN_STATE>
         <PLUGIN_STATE CLASS="ghidra.app.plugin.core.byteviewer.ByteViewerPlugin">
             <ARRAY NAME="View Names" TYPE="string">
@@ -357,9 +114,6 @@
             <STATE NAME="Hex view groupsize" TYPE="int" VALUE="1" />
             <STATE NAME="Bytes Per Line" TYPE="int" VALUE="16" />
             <STATE NAME="Offset" TYPE="int" VALUE="0" />
-        </PLUGIN_STATE>
-        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.overview.OverviewColorPlugin">
-            <ARRAY NAME="ActiveServices" TYPE="string" />
         </PLUGIN_STATE>
         <PLUGIN_STATE CLASS="ghidra.app.plugin.core.codebrowser.CodeBrowserPlugin">
             <XML NAME="Array">
@@ -487,6 +241,48 @@
                 </FORMAT>
             </XML>
         </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.datamgr.DataTypeManagerPlugin">
+            <STATE NAME="PreviewWindowState" TYPE="boolean" VALUE="false" />
+            <STATE NAME="ArrayFilterState" TYPE="boolean" VALUE="true" />
+            <ARRAY NAME="ArchiveNames" TYPE="string">
+                <A VALUE="$GHIDRA_HOME/Features/Base/data/typeinfo/win32/windows_vs12_32.gdt" />
+            </ARRAY>
+            <STATE NAME="ConflictResolutionMode" TYPE="string" VALUE="RENAME_AND_ADD" />
+            <ARRAY NAME="RecentArchiveNames" TYPE="string">
+                <A VALUE="$GHIDRA_HOME/Features/Base/data/typeinfo/win32/windows_vs12_32.gdt" />
+            </ARRAY>
+            <STATE NAME="PointerFilterState" TYPE="boolean" VALUE="true" />
+            <ARRAY NAME="Favorite Dts" TYPE="string">
+                <A VALUE="/pointer" />
+                <A VALUE="/char" />
+                <A VALUE="/string" />
+                <A VALUE="/TerminatedCString" />
+                <A VALUE="/TerminatedUnicode" />
+                <A VALUE="/float" />
+                <A VALUE="/double" />
+                <A VALUE="/longdouble" />
+                <A VALUE="/int" />
+                <A VALUE="/long" />
+                <A VALUE="/uint" />
+                <A VALUE="/ulong" />
+                <A VALUE="/byte" />
+                <A VALUE="/word" />
+                <A VALUE="/dword" />
+                <A VALUE="/qword" />
+            </ARRAY>
+            <STATE NAME="DataMembersInSearchState" TYPE="boolean" VALUE="false" />
+        </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.datapreview.DataTypePreviewPlugin">
+            <STATE NAME="TerminatedCString" TYPE="string" VALUE="/" />
+            <STATE NAME="byte" TYPE="string" VALUE="/" />
+            <STATE NAME="double" TYPE="string" VALUE="/" />
+            <STATE NAME="dword" TYPE="string" VALUE="/" />
+            <STATE NAME="char" TYPE="string" VALUE="/" />
+            <STATE NAME="qword" TYPE="string" VALUE="/" />
+            <STATE NAME="TerminatedUnicode" TYPE="string" VALUE="/" />
+            <STATE NAME="float" TYPE="string" VALUE="/" />
+            <STATE NAME="word" TYPE="string" VALUE="/" />
+        </PLUGIN_STATE>
         <PLUGIN_STATE CLASS="ghidra.app.plugin.core.functiongraph.FunctionGraphPlugin">
             <XML NAME="USER_DEFINED_FORMAT_MANAGER">
                 <SAVE_STATE>
@@ -557,6 +353,214 @@
             <ENUM NAME="EDGE_SELECTION_HIGHLIGHT" TYPE="enum" CLASS="ghidra.app.plugin.core.functiongraph.EdgeDisplayType" VALUE="Off" />
             <STATE NAME="DOCK_SATELLITE" TYPE="boolean" VALUE="true" />
         </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.graph.GraphDisplayBrokerPlugin">
+            <STATE NAME="ACTIVE_GRAPH_PROVIDER" TYPE="string" VALUE="Default Graph Display" />
+        </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.navigation.GoToAddressLabelPlugin">
+            <STATE NAME="CASE_SENSITIVE" TYPE="boolean" VALUE="false" />
+            <STATE NAME="INCLUDE_DYNAMIC" TYPE="boolean" VALUE="true" />
+            <ARRAY NAME="GO_TO_HISTORY" TYPE="string">
+                <A VALUE="f__MainCapability" />
+                <A VALUE="f__NetworkAuthentication" />
+                <A VALUE="f__CmdSwitch" />
+                <A VALUE="entry" />
+                <A VALUE="10005d94" />
+                <A VALUE="10003990" />
+                <A VALUE="1000182f" />
+                <A VALUE="100052b0" />
+                <A VALUE="10003030" />
+                <A VALUE="f__DeleteTempFile" />
+            </ARRAY>
+        </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.overview.OverviewColorPlugin">
+            <ARRAY NAME="ActiveServices" TYPE="string" />
+        </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.script.GhidraScriptMgrPlugin">
+            <ARRAY NAME="BundleHost_FILE" TYPE="string">
+                <A VALUE="$GHIDRA_HOME/Features/Python/ghidra_scripts" />
+                <A VALUE="$USER_HOME/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Features/FunctionID/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Processors/8051/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Features/VersionTracking/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Features/GnuDemangler/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Features/Decompiler/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Features/FileFormats/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Features/BytePatterns/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Processors/DATA/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Features/Base/ghidra_scripts" />
+                <A VALUE="$GHIDRA_HOME/Processors/PIC/ghidra_scripts" />
+            </ARRAY>
+            <ARRAY NAME="Scripts_Actions_Key" TYPE="string" />
+            <ARRAY NAME="BundleHost_ACTIVE" TYPE="boolean">
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+                <A VALUE="false" />
+            </ARRAY>
+            <STATE NAME="DEFAULT_FONT_NAME" TYPE="string" VALUE="monospaced" />
+            <ARRAY NAME="BundleHost_SYSTEM" TYPE="boolean">
+                <A VALUE="true" />
+                <A VALUE="false" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+            </ARRAY>
+            <STATE NAME="DEFAULT_FONT_SIZE" TYPE="int" VALUE="12" />
+            <STATE NAME="DEFAULT_FONT_STYLE" TYPE="int" VALUE="0" />
+            <ARRAY NAME="BundleHost_ENABLE" TYPE="boolean">
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+                <A VALUE="true" />
+            </ARRAY>
+            <STATE NAME="DESCRIPTION_DIVIDER_LOCATION" TYPE="int" VALUE="672" />
+            <STATE NAME="FILTER_TEXT" TYPE="string" VALUE="" />
+        </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.symboltree.SymbolTreePlugin">
+            <STATE NAME="GO_TO_TOGGLE_STATE" TYPE="boolean" VALUE="false" />
+        </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.app.plugin.core.symtable.SymbolTablePlugin">
+            <XML NAME="FILTER_SETTINGS">
+                <SYMBOL_TABLE_FILTER>
+                    <ADVANCED_FILTER NAME="Primary Labels" ACTIVE="false">
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                    </ADVANCED_FILTER>
+                    <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                    <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <ADVANCED_FILTER NAME="Offcut Labels" ACTIVE="false">
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                    </ADVANCED_FILTER>
+                    <FILTER NAME="Default (Functions)" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="false" />
+                    <FILTER NAME="Imported" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <ADVANCED_FILTER NAME="Non-Primary Labels" ACTIVE="false">
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                    </ADVANCED_FILTER>
+                    <ADVANCED_FILTER NAME="Externals" ACTIVE="false">
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    </ADVANCED_FILTER>
+                    <ADVANCED_FILTER NAME="Non-Externals" ACTIVE="false">
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    </ADVANCED_FILTER>
+                    <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                    <FILTER NAME="External Library" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <FILTER NAME="User Defined" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <ADVANCED_FILTER NAME="Stack Variables" ACTIVE="false">
+                        <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    </ADVANCED_FILTER>
+                    <FILTER NAME="Default (Labels)" ACTIVE="false" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="false" />
+                    <ADVANCED_FILTER NAME="Not In Memory" ACTIVE="false">
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                    </ADVANCED_FILTER>
+                    <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                    <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <ADVANCED_FILTER NAME="Globals" ACTIVE="false">
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    </ADVANCED_FILTER>
+                    <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <ADVANCED_FILTER NAME="Register Variables" ACTIVE="false">
+                        <FILTER NAME="Parameters" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    </ADVANCED_FILTER>
+                    <FILTER NAME="Global Register Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <ADVANCED_FILTER NAME="Locals" ACTIVE="false">
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Classes" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Namespaces" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    </ADVANCED_FILTER>
+                    <ADVANCED_FILTER NAME="Subroutines" ACTIVE="false">
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                    </ADVANCED_FILTER>
+                    <FILTER NAME="Analysis" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <FILTER NAME="Local Variables" ACTIVE="false" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="false" />
+                    <ADVANCED_FILTER NAME="Entry Points" ACTIVE="false">
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                    </ADVANCED_FILTER>
+                    <ADVANCED_FILTER NAME="Unreferenced" ACTIVE="false">
+                        <FILTER NAME="Instruction Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Data Labels" ACTIVE="true" INCLUDES_DEFAULTS="true" ONLY_CODE_SYMBOLS="true" />
+                        <FILTER NAME="Function Labels" ACTIVE="true" INCLUDES_DEFAULTS="false" ONLY_CODE_SYMBOLS="true" />
+                    </ADVANCED_FILTER>
+                </SYMBOL_TABLE_FILTER>
+            </XML>
+        </PLUGIN_STATE>
+        <PLUGIN_STATE CLASS="ghidra.plugin.importer.ImporterPlugin">
+            <ARRAY NAME="library search paths" TYPE="string">
+                <A VALUE="." />
+                <A VALUE="C:\WINDOWS\SysWOW64" />
+                <A VALUE="C:\jdk-12\bin" />
+                <A VALUE="C:\WINDOWS\Sun\Java\bin" />
+                <A VALUE="C:\WINDOWS\system32" />
+                <A VALUE="C:\WINDOWS" />
+                <A VALUE="C:\Program Files (x86)\Lenovo\FusionEngine" />
+                <A VALUE="C:\Windows\system32" />
+                <A VALUE="C:\Windows" />
+                <A VALUE="C:\Windows\System32\Wbem" />
+                <A VALUE="C:\Windows\System32\WindowsPowerShell\v1.0\" />
+                <A VALUE="C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin" />
+                <A VALUE="C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common" />
+                <A VALUE="C:\WINDOWS\System32\Wbem" />
+                <A VALUE="C:\WINDOWS\System32\WindowsPowerShell\v1.0\" />
+                <A VALUE="C:\Users\user\AppData\Local\Programs\Python\Python37" />
+                <A VALUE="C:\WINDOWS\System32\OpenSSH\" />
+                <A VALUE="C:\Users\user\Downloads\ghidra\gradle-5.0-bin\gradle-5.0\bin" />
+                <A VALUE="C:\Users\user\Downloads\ghidra\win_flex_bison-latest" />
+                <A VALUE="C:\Users\user\AppData\Local\Programs\Python\Python37\Scripts\" />
+                <A VALUE="C:\Users\user\AppData\Local\Programs\Python\Python37\" />
+                <A VALUE="C:\Users\user\AppData\Local\Microsoft\WindowsApps" />
+                <A VALUE="C:\Users\user\AppData\Local\Programs\Git\cmd" />
+            </ARRAY>
+        </PLUGIN_STATE>
         <ROOT_NODE X_POS="0" Y_POS="0" WIDTH="1936" HEIGHT="1056" EX_STATE="0" FOCUSED_OWNER="ConsolePlugin" FOCUSED_NAME="Console" FOCUSED_TITLE="Console">
             <SPLIT_NODE WIDTH="1621" HEIGHT="816" DIVIDER_LOCATION="148" ORIENTATION="VERTICAL">
                 <COMPONENT_NODE TOP_INFO="0">
@@ -567,46 +571,46 @@
                     <SPLIT_NODE WIDTH="274" HEIGHT="939" DIVIDER_LOCATION="640" ORIENTATION="VERTICAL">
                         <SPLIT_NODE WIDTH="274" HEIGHT="598" DIVIDER_LOCATION="502" ORIENTATION="VERTICAL">
                             <COMPONENT_NODE TOP_INFO="0">
-                                <COMPONENT_INFO NAME="Program Tree" OWNER="ProgramTreePlugin" TITLE="Program Trees" ACTIVE="true" GROUP="Default" INSTANCE_ID="3337509613971062283" />
+                                <COMPONENT_INFO NAME="Program Tree" OWNER="ProgramTreePlugin" TITLE="Program Trees" ACTIVE="true" GROUP="Default" INSTANCE_ID="3390829383619112204" />
                             </COMPONENT_NODE>
                             <COMPONENT_NODE TOP_INFO="0">
-                                <COMPONENT_INFO NAME="Symbol Tree" OWNER="SymbolTreePlugin" TITLE="Symbol Tree" ACTIVE="true" GROUP="Default" INSTANCE_ID="3337509433303514655" />
+                                <COMPONENT_INFO NAME="Symbol Tree" OWNER="SymbolTreePlugin" TITLE="Symbol Tree" ACTIVE="true" GROUP="Default" INSTANCE_ID="3390829383619112208" />
                             </COMPONENT_NODE>
                         </SPLIT_NODE>
                         <COMPONENT_NODE TOP_INFO="0">
-                            <COMPONENT_INFO NAME="DataTypes Provider" OWNER="DataTypeManagerPlugin" TITLE="Data Type Manager" ACTIVE="true" GROUP="Default" INSTANCE_ID="3337509617120984604" />
+                            <COMPONENT_INFO NAME="DataTypes Provider" OWNER="DataTypeManagerPlugin" TITLE="Data Type Manager" ACTIVE="true" GROUP="Default" INSTANCE_ID="3390829403938417923" />
                         </COMPONENT_NODE>
                     </SPLIT_NODE>
                     <SPLIT_NODE WIDTH="1642" HEIGHT="939" DIVIDER_LOCATION="785" ORIENTATION="VERTICAL">
                         <SPLIT_NODE WIDTH="1642" HEIGHT="734" DIVIDER_LOCATION="705" ORIENTATION="VERTICAL">
                             <SPLIT_NODE WIDTH="1642" HEIGHT="734" DIVIDER_LOCATION="558" ORIENTATION="HORIZONTAL">
                                 <COMPONENT_NODE TOP_INFO="0">
-                                    <COMPONENT_INFO NAME="Listing" OWNER="CodeBrowserPlugin" TITLE="Listing:  AFMRE_Capstone" ACTIVE="true" GROUP="Core" INSTANCE_ID="3337509613971062287" />
-                                    <COMPONENT_INFO NAME="Function Call Trees" OWNER="CallTreePlugin" TITLE="Function Call Trees" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062276" />
+                                    <COMPONENT_INFO NAME="Listing" OWNER="CodeBrowserPlugin" TITLE="Listing: " ACTIVE="true" GROUP="Core" INSTANCE_ID="3390829383619112195" />
+                                    <COMPONENT_INFO NAME="Function Call Trees" OWNER="CallTreePlugin" TITLE="Function Call Trees" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112193" />
                                 </COMPONENT_NODE>
                                 <COMPONENT_NODE TOP_INFO="6">
-                                    <COMPONENT_INFO NAME="Decompiler" OWNER="DecompilePlugin" TITLE="Decompiler" ACTIVE="true" GROUP="Default" INSTANCE_ID="3337509613971062282" />
-                                    <COMPONENT_INFO NAME="Bytes" OWNER="ByteViewerPlugin" TITLE="Bytes: AFMRE_Capstone" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062285" />
-                                    <COMPONENT_INFO NAME="Data Window" OWNER="DataWindowPlugin" TITLE="Defined Data" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509618337332746" />
-                                    <COMPONENT_INFO NAME="Defined Strings" OWNER="ViewStringsPlugin" TITLE="Defined Strings" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509618337332747" />
-                                    <COMPONENT_INFO NAME="Equates Table" OWNER="EquateTablePlugin" TITLE="Equates Table" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062274" />
-                                    <COMPONENT_INFO NAME="External Programs" OWNER="ReferencesPlugin" TITLE="External Programs" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062286" />
-                                    <COMPONENT_INFO NAME="Functions Window" OWNER="FunctionWindowPlugin" TITLE="Functions" ACTIVE="true" GROUP="Default" INSTANCE_ID="3337509617120984605" />
-                                    <COMPONENT_INFO NAME="Relocation Table" OWNER="RelocationTablePlugin" TITLE="Relocation Table" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509618337332750" />
+                                    <COMPONENT_INFO NAME="Decompiler" OWNER="DecompilePlugin" TITLE="Decompile" ACTIVE="true" GROUP="Default" INSTANCE_ID="3390829383619112198" />
+                                    <COMPONENT_INFO NAME="Bytes" OWNER="ByteViewerPlugin" TITLE="Bytes: No Program" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112192" />
+                                    <COMPONENT_INFO NAME="Data Window" OWNER="DataWindowPlugin" TITLE="Defined Data" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829408088681746" />
+                                    <COMPONENT_INFO NAME="Defined Strings" OWNER="ViewStringsPlugin" TITLE="Defined Strings" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829408088681742" />
+                                    <COMPONENT_INFO NAME="Equates Table" OWNER="EquateTablePlugin" TITLE="Equates Table" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112200" />
+                                    <COMPONENT_INFO NAME="External Programs" OWNER="ReferencesPlugin" TITLE="External Programs" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112205" />
+                                    <COMPONENT_INFO NAME="Functions Window" OWNER="FunctionWindowPlugin" TITLE="Functions" ACTIVE="true" GROUP="Default" INSTANCE_ID="3390829408088681729" />
+                                    <COMPONENT_INFO NAME="Relocation Table" OWNER="RelocationTablePlugin" TITLE="Relocation Table" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829408088681741" />
                                 </COMPONENT_NODE>
                             </SPLIT_NODE>
                             <SPLIT_NODE WIDTH="1386" HEIGHT="189" DIVIDER_LOCATION="495" ORIENTATION="HORIZONTAL">
                                 <COMPONENT_NODE TOP_INFO="0">
-                                    <COMPONENT_INFO NAME="Data Type Preview" OWNER="DataTypePreviewPlugin" TITLE="Data Type Preview" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509617014029838" />
+                                    <COMPONENT_INFO NAME="Data Type Preview" OWNER="DataTypePreviewPlugin" TITLE="Data Type Preview" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829408088681728" />
                                 </COMPONENT_NODE>
                                 <COMPONENT_NODE TOP_INFO="0">
-                                    <COMPONENT_INFO NAME="Virtual Disassembler - Current Instruction" OWNER="DisassembledViewPlugin" TITLE="Disassembled View" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062281" />
+                                    <COMPONENT_INFO NAME="Virtual Disassembler - Current Instruction" OWNER="DisassembledViewPlugin" TITLE="Disassembled View" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112199" />
                                 </COMPONENT_NODE>
                             </SPLIT_NODE>
                         </SPLIT_NODE>
                         <COMPONENT_NODE TOP_INFO="0">
-                            <COMPONENT_INFO NAME="Console" OWNER="ConsolePlugin" TITLE="Console" ACTIVE="true" GROUP="Default" INSTANCE_ID="3337509613971062278" />
-                            <COMPONENT_INFO NAME="Bookmarks" OWNER="BookmarkPlugin" TITLE="Bookmarks" ACTIVE="false" GROUP="Core.Bookmarks" INSTANCE_ID="3337509613971062272" />
+                            <COMPONENT_INFO NAME="Console" OWNER="ConsolePlugin" TITLE="Console" ACTIVE="true" GROUP="Default" INSTANCE_ID="3390829383619112196" />
+                            <COMPONENT_INFO NAME="Bookmarks" OWNER="BookmarkPlugin" TITLE="Bookmarks" ACTIVE="false" GROUP="Core.Bookmarks" INSTANCE_ID="3390829217025551647" />
                         </COMPONENT_NODE>
                     </SPLIT_NODE>
                 </SPLIT_NODE>
@@ -614,7 +618,7 @@
             <WINDOW_NODE X_POS="0" Y_POS="0" WIDTH="1936" HEIGHT="995">
                 <SPLIT_NODE WIDTH="1920" HEIGHT="970" DIVIDER_LOCATION="617" ORIENTATION="HORIZONTAL">
                     <COMPONENT_NODE TOP_INFO="0">
-                        <COMPONENT_INFO NAME="Script Manager" OWNER="GhidraScriptMgrPlugin" TITLE="Script Manager" ACTIVE="false" GROUP="Script Group" INSTANCE_ID="3337509613971062277" />
+                        <COMPONENT_INFO NAME="Script Manager" OWNER="GhidraScriptMgrPlugin" TITLE="Script Manager" ACTIVE="false" GROUP="Script Group" INSTANCE_ID="3390829383619112206" />
                     </COMPONENT_NODE>
                     <COMPONENT_NODE TOP_INFO="0">
                         <COMPONENT_INFO NAME="Script Editor" OWNER="GhidraScriptMgrPlugin" TITLE="test.py" ACTIVE="false" GROUP="Script Group" INSTANCE_ID="3288625097609196850" />
@@ -623,52 +627,52 @@
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="423" Y_POS="144" WIDTH="927" HEIGHT="370">
                 <COMPONENT_NODE TOP_INFO="0">
-                    <COMPONENT_INFO NAME="Memory Map" OWNER="MemoryMapPlugin" TITLE="Memory Map" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062280" />
+                    <COMPONENT_INFO NAME="Memory Map" OWNER="MemoryMapPlugin" TITLE="Memory Map" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112203" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="-8" Y_POS="-8" WIDTH="1040" HEIGHT="744">
                 <COMPONENT_NODE TOP_INFO="0">
-                    <COMPONENT_INFO NAME="Function Graph" OWNER="FunctionGraphPlugin" TITLE="Function Graph" ACTIVE="false" GROUP="Function Graph" INSTANCE_ID="3337509617120984606" />
+                    <COMPONENT_INFO NAME="Function Graph" OWNER="FunctionGraphPlugin" TITLE="Function Graph" ACTIVE="false" GROUP="Function Graph" INSTANCE_ID="3390829408088681747" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="550" Y_POS="206" WIDTH="655" HEIGHT="509">
                 <COMPONENT_NODE TOP_INFO="0">
-                    <COMPONENT_INFO NAME="Register Manager" OWNER="RegisterPlugin" TITLE="Register Manager" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062289" />
+                    <COMPONENT_INFO NAME="Register Manager" OWNER="RegisterPlugin" TITLE="Register Manager" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829408088681730" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="287" Y_POS="186" WIDTH="1424" HEIGHT="666">
                 <SPLIT_NODE WIDTH="1408" HEIGHT="559" DIVIDER_LOCATION="573" ORIENTATION="HORIZONTAL">
                     <COMPONENT_NODE TOP_INFO="0">
-                        <COMPONENT_INFO NAME="Symbol Table" OWNER="SymbolTablePlugin" TITLE="Symbol Table" ACTIVE="false" GROUP="symbolTable" INSTANCE_ID="3337509617120984607" />
+                        <COMPONENT_INFO NAME="Symbol Table" OWNER="SymbolTablePlugin" TITLE="Symbol Table" ACTIVE="false" GROUP="symbolTable" INSTANCE_ID="3390829408088681743" />
                     </COMPONENT_NODE>
                     <COMPONENT_NODE TOP_INFO="0">
-                        <COMPONENT_INFO NAME="Symbol References" OWNER="SymbolTablePlugin" TITLE="Symbol References" ACTIVE="false" GROUP="symbolTable" INSTANCE_ID="3337509618337332736" />
+                        <COMPONENT_INFO NAME="Symbol References" OWNER="SymbolTablePlugin" TITLE="Symbol References" ACTIVE="false" GROUP="symbolTable" INSTANCE_ID="3390829408088681744" />
                     </COMPONENT_NODE>
                 </SPLIT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="-1" Y_POS="-1" WIDTH="0" HEIGHT="0">
                 <COMPONENT_NODE TOP_INFO="0">
-                    <COMPONENT_INFO NAME="Checksum Generator" OWNER="ComputeChecksumsPlugin" TITLE="Checksum Generator" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062284" />
+                    <COMPONENT_INFO NAME="Checksum Generator" OWNER="ComputeChecksumsPlugin" TITLE="Checksum Generator" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112194" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="-1" Y_POS="-1" WIDTH="0" HEIGHT="0">
                 <COMPONENT_NODE TOP_INFO="0">
-                    <COMPONENT_INFO NAME="Function Tags" OWNER="FunctionTagPlugin" TITLE="Function Tags" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509613971062275" />
+                    <COMPONENT_INFO NAME="Function Tags" OWNER="FunctionTagPlugin" TITLE="Function Tags" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112202" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="-1" Y_POS="-1" WIDTH="0" HEIGHT="0">
                 <COMPONENT_NODE TOP_INFO="0">
-                    <COMPONENT_INFO NAME="Comment Window" OWNER="CommentWindowPlugin" TITLE="Comments" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509618337332749" />
+                    <COMPONENT_INFO NAME="Comment Window" OWNER="CommentWindowPlugin" TITLE="Comments" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829408088681745" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="910" Y_POS="517" WIDTH="954" HEIGHT="486">
                 <COMPONENT_NODE TOP_INFO="0">
-                    <COMPONENT_INFO NAME="Python" OWNER="InterpreterPanelPlugin" TITLE="Python" ACTIVE="false" GROUP="Default" INSTANCE_ID="3337509618337332748" />
+                    <COMPONENT_INFO NAME="Python" OWNER="InterpreterPanelPlugin" TITLE="Python" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829408088681731" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="0" Y_POS="0" WIDTH="1936" HEIGHT="1056">
                 <COMPONENT_NODE TOP_INFO="0">
-                    <COMPONENT_INFO NAME="Function Call Graph" OWNER="FunctionCallGraphPlugin" TITLE="Function Call Graph" ACTIVE="false" GROUP="Function Call Graph" INSTANCE_ID="3337509613971062288" />
+                    <COMPONENT_INFO NAME="Function Call Graph" OWNER="FunctionCallGraphPlugin" TITLE="Function Call Graph" ACTIVE="false" GROUP="Function Call Graph" INSTANCE_ID="3390829383619112209" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
             <WINDOW_NODE X_POS="0" Y_POS="0" WIDTH="1936" HEIGHT="1056">
@@ -709,6 +713,11 @@
             <WINDOW_NODE X_POS="0" Y_POS="0" WIDTH="416" HEIGHT="386">
                 <COMPONENT_NODE TOP_INFO="0">
                     <COMPONENT_INFO NAME="Function Graph Satellite" OWNER="FunctionGraphPlugin" TITLE="Function Graph Satellite" ACTIVE="false" GROUP="Default" INSTANCE_ID="3293103272976980783" />
+                </COMPONENT_NODE>
+            </WINDOW_NODE>
+            <WINDOW_NODE X_POS="0" Y_POS="0" WIDTH="0" HEIGHT="0">
+                <COMPONENT_NODE TOP_INFO="0">
+                    <COMPONENT_INFO NAME="BundleManager" OWNER="GhidraScriptMgrPlugin" TITLE="Bundle Manager" ACTIVE="false" GROUP="Default" INSTANCE_ID="3390829383619112207" />
                 </COMPONENT_NODE>
             </WINDOW_NODE>
         </ROOT_NODE>
@@ -1036,6 +1045,37 @@
                     </Table_State>
                 </XML>
             </PREFERENCE_STATE>
+            <PREFERENCE_STATE NAME="ghidra.app.plugin.core.functionwindow.FunctionTableModel:Name:Location:Function Signature:Function Size:">
+                <XML NAME="COLUMN_DATA">
+                    <Table_State>
+                        <COLUMN NAME="ghidra.app.plugin.core.functionwindow.FunctionTableModel$NameTableColumn.Name" WIDTH="283" VISIBLE="true" />
+                        <COLUMN NAME="ghidra.util.table.field.AddressTableColumn.Location" WIDTH="34" VISIBLE="true" />
+                        <COLUMN NAME="ghidra.util.table.field.FunctionSignatureTableColumn.Function Signature" WIDTH="117" VISIBLE="true" />
+                        <COLUMN NAME="ghidra.util.table.field.FunctionBodySizeTableColumn.Function Size" WIDTH="283" VISIBLE="true" />
+                        <COLUMN NAME="ghidra.util.table.field.FunctionTagTableColumn.Tags" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.PreviewTableColumn.Preview" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.CodeUnitTableColumn.Code Unit" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.LabelTableColumn.Label" WIDTH="200" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.FunctionCallingConventionTableColumn.Function Calling Convention" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.MemoryTypeProgramLocationBasedTableColumn.Mem Type" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.FunctionNameTableColumn.Function Name" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.FunctionPurgeTableColumn.Function Purge" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.ByteCountProgramLocationBasedTableColumn.Byte Count" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.NamespaceTableColumn.Namespace" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.ReferenceCountToAddressTableColumn.Reference Count" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.EOLCommentTableColumn.EOL Comment" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.FunctionParameterCountTableColumn.Param Count" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.OffcutReferenceCountToAddressTableColumn.Offcut Reference Count" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.MemorySectionProgramLocationBasedTableColumn.Mem Block" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.BytesTableColumn.Bytes" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.SourceTypeTableColumn.Symbol Source" WIDTH="500" VISIBLE="false" />
+                        <COLUMN NAME="ghidra.util.table.field.SymbolTypeTableColumn.Symbol Type" WIDTH="500" VISIBLE="false" />
+                        <TABLE_SORT_STATE>
+                            <COLUMN_SORT_STATE COLUMN_MODEL_INDEX="1" SORT_DIRECTION="ascending" SORT_ORDER="1" />
+                        </TABLE_SORT_STATE>
+                    </Table_State>
+                </XML>
+            </PREFERENCE_STATE>
             <PREFERENCE_STATE NAME="ghidra.app.plugin.core.register.RegisterValuesPanel$RegisterValuesTableModel:Start Address:End Address:Value:">
                 <XML NAME="COLUMN_DATA">
                     <Table_State>
@@ -1066,6 +1106,7 @@
                     </Table_State>
                 </XML>
             </PREFERENCE_STATE>
+            <PREFERENCE_STATE NAME="GRAPH_DISPLAY_SERVICE" />
             <PREFERENCE_STATE NAME="ghidra.framework.plugintool.dialog.KeyBindingsPanel$KeyBindingsTableModel:Action Name:KeyBinding:Plugin Name:">
                 <XML NAME="COLUMN_DATA">
                     <Table_State>
